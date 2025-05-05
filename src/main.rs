@@ -1,6 +1,8 @@
 mod structure;
 mod tool;
 
+use std::vec;
+
 use crate::structure::bst::BstNode;
 use crate::structure::tree::Node;
 use crate::structure::tree::NodeLink;
@@ -56,6 +58,12 @@ fn test_binary_search_tree(){
                 third_left_subtree_link.borrow_mut().add_left_child(third_left_subtree_link, 9);
             }
         }
+    }
+
+    // testing tree_insert
+    let insert_values = vec![8, 5, 19, 1, 14];
+    for &key in insert_values.iter() {
+        BstNode::tree_insert(Some(rootlink.clone()), key);
     }
 
     //print the tree at this time
